@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <servlet>
+        <servlet-name>SaveSpecialContentController</servlet-name>
+        <servlet-class>controller.SaveSpecialContentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveSpecialContentController</servlet-name>
+        <url-pattern>/admin/crawler-source/save-special-content</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>PreviewSpecialContentController</servlet-name>
+        <servlet-class>controller.PreviewSpecialContentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PreviewSpecialContentController</servlet-name>
+        <url-pattern>/admin/crawler-source/special-content</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GetQueue</servlet-name>
+        <servlet-class>queuetask.GetQueue</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetQueue</servlet-name>
+        <url-pattern>/taskqueue/get</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddCrawlerSourceController</servlet-name>
+        <servlet-class>controller.AddCrawlerSourceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCrawlerSourceController</servlet-name>
+        <url-pattern>/admin/crawler-source/add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddQueue</servlet-name>
+        <servlet-class>queuetask.AddQueue</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddQueue</servlet-name>
+        <url-pattern>/taskqueue/add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Subcriber1</servlet-name>
+        <servlet-class>pubsub.subscriber</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Subcriber1</servlet-name>
+        <url-pattern>/subcriber/listen</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListTubeController</servlet-name>
+        <servlet-class>controller.tube.ListTubeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListTubeController</servlet-name>
+        <url-pattern>/atube/list</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ATubeApi</servlet-name>
+        <servlet-class>api.ATubeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ATubeApi</servlet-name>
+        <url-pattern>/api/v1/atubes</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>ObjectifyRegisterFilter</filter-name>
+        <filter-class>filter.ObjectifyRegisterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyRegisterFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>ObjectifyFilter</filter-name>
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--    <security-constraint>-->
+    <!--        <web-resource-collection>-->
+    <!--            <web-resource-name>admin</web-resource-name>-->
+    <!--            <url-pattern>/admin/*</url-pattern>-->
+    <!--        </web-resource-collection>-->
+    <!--        <auth-constraint>-->
+    <!--            <role-name>admin</role-name>-->
+    <!--        </auth-constraint>-->
+    <!--    </security-constraint>-->
+    <!--    <security-constraint>-->
+    <!--        <web-resource-collection>-->
+    <!--            <web-resource-name>atube</web-resource-name>-->
+    <!--            <url-pattern>/atube/list</url-pattern>-->
+    <!--        </web-resource-collection>-->
+    <!--        <auth-constraint>-->
+    <!--            <role-name>*</role-name>-->
+    <!--        </auth-constraint>-->
+    <!--    </security-constraint>-->
+</web-app>
